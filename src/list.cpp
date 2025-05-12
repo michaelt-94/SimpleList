@@ -25,6 +25,7 @@ void List::print_menu(){
     } else {
         cout << " Sorry choice has not been iomplemented\n.";
     }
+    cin.clear();
 
 }
 
@@ -38,7 +39,7 @@ void List::add_item(){
 
     list.push_back(item);
 
-    cout << "Successfully add item to the list.\n";
+    cout << "Successfully added item to the list.\n";
     cin.clear();
     print_menu();
 }
@@ -51,10 +52,13 @@ void List::delete_item(){
     if(list.size()){
         for(unsigned int i=0; i<list.size(); i++){
             cout << i << ": " << list[i] << endl;
-
         }
+        int choiceNum;
+        cin >> choiceNum;
+
+        list.erase(list.begin() + choiceNum);
     } else {
-        cout << "There are no  items in the list to delete.";
+        cout << "There are no  items in the list to delete: ";
     }
     print_menu();
 }
